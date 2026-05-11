@@ -607,9 +607,8 @@ const FAQ = [
   { q: "What if I can't make it live?", a: "Try to make it. The Q&A is where most attendees get their breakthrough. You'll get the cheat-sheet pack either way, but it's a companion — not a replacement." },
 ];
 
-// Deployed Google Apps Script endpoint for form submissions + email automation
-// Update this with your Google Apps Script deployment URL from script.google.com
-const SHEET_ENDPOINT = "https://your-railway-app.up.railway.app/api/register";
+// Deployed Node.js backend endpoint for form submissions + email automation
+const SHEET_ENDPOINT = "https://mail-automation-production-f86d.up.railway.app/api/register";
 
 export default function MlMasterclass() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", role: "" });
