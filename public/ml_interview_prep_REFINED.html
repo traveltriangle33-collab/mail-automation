@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ML Interview Prep — Refined Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2D1F5C;
+    --secondary:#080927;
+    --accent:#8508E0;
+    --accent-light:#A855F7;
+    --ink:#FFFFFF;
+    --ink-soft:#E5DAFF;
+    --ink-mid:#B8A5DD;
+    --ink-dim:#7E6BA8;
+    --line:rgba(180,150,240,.10);
+    --line-mid:rgba(180,150,240,.20);
+    --line-strong:rgba(180,150,240,.32);
+    --bg-0:#04041A;
+    --green:#22E5A8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{
+    background:transparent;
+    font-family:'Geist',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+  /* Standalone view: when opened directly (not embedded), still center the poster nicely */
+  body:not(.embedded){
+    background:#111;
+    display:flex;justify-content:center;align-items:center;
+    min-height:100vh;padding:20px;
+  }
+  body.embedded .poster{margin:0;}
+  /* Make the whole CTA clickable */
+  .cta-link{display:block;text-decoration:none;color:inherit;cursor:pointer;}
+  .cta-link:hover .cta{transform:translateY(-2px);box-shadow:0 14px 32px rgba(133,8,224,.5);}
+  .cta-link .cta{transition:transform .15s, box-shadow .15s;}
+
+  /* Landscape — 1200 x 675 (16:9), matching original aspect */
+  .poster{
+    width:1200px;height:675px;
+    position:relative;overflow:hidden;
+    background:var(--bg-0);
+    color:var(--ink-soft);
+    isolation:isolate;
+    font-feature-settings:"ss01","cv11";
+  }
+
+  /* ===== Background mesh ===== */
+  .bg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(900px 600px at 75% 20%, rgba(133,8,224,.40), transparent 55%),
+      radial-gradient(700px 600px at 0% 100%, rgba(45,31,92,.55), transparent 60%),
+      radial-gradient(500px 400px at 100% 100%, rgba(112,34,170,.20), transparent 60%),
+      linear-gradient(135deg,#080927 0%, #1A0F45 60%, #2D1F5C 100%);
+  }
+  .grid{
+    position:absolute;inset:0;z-index:1;
+    background-image:
+      linear-gradient(rgba(180,150,240,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180,150,240,.07) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse at 50% 40%, black 30%, transparent 80%);
+  }
+  .aurora{
+    position:absolute;top:-180px;right:-150px;
+    width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle, rgba(133,8,224,.40), transparent 60%);
+    filter:blur(60px);z-index:1;
+  }
+  .aurora-2{
+    position:absolute;bottom:-120px;left:200px;
+    width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle, rgba(168,85,247,.20), transparent 60%);
+    filter:blur(70px);z-index:1;
+  }
+
+  /* Floating glow nodes — replacing the swirly shapes */
+  .node{
+    position:absolute;border-radius:50%;
+    background:#C9B6FF;
+    box-shadow:0 0 12px #8508E0, 0 0 24px rgba(133,8,224,.5);
+    z-index:2;
+  }
+  .node.n1{width:5px;height:5px;top:140px;left:560px;}
+  .node.n2{width:3px;height:3px;top:260px;left:610px;opacity:.7;}
+  .node.n3{width:4px;height:4px;top:420px;left:540px;opacity:.6;}
+  .node.n4{width:3px;height:3px;top:380px;left:680px;opacity:.5;}
+
+  /* Top hairline */
+  .topline{
+    position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(180,150,240,.5),transparent);
+    z-index:6;
+  }
+  /* Noise */
+  .noise{
+    position:absolute;inset:0;z-index:60;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+    opacity:.04;mix-blend-mode:overlay;
+  }
+
+  /* ===== Status strip top-left (replaces just empty corner) ===== */
+  .status-strip{
+    position:absolute;top:36px;left:48px;z-index:5;
+    display:inline-flex;align-items:center;gap:0;
+    padding:5px;border-radius:999px;
+    background:rgba(8,9,39,.6);
+    border:1px solid var(--line-mid);
+    backdrop-filter:blur(12px);
+  }
+  .status-strip .pill{
+    display:inline-flex;align-items:center;gap:7px;
+    padding:5px 11px;border-radius:999px;
+    font-family:'Geist Mono',monospace;
+    font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-mid);font-weight:500;
+  }
+  .status-strip .pill.live{
+    background:rgba(34,229,168,.12);
+    color:#7CF0CB;
+  }
+  .status-strip .pill .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 0 rgba(34,229,168,.7);
+    animation:livePulse 1.8s infinite;
+  }
+  @keyframes livePulse{
+    0%{box-shadow:0 0 0 0 rgba(34,229,168,.7);}
+    70%{box-shadow:0 0 0 7px rgba(34,229,168,0);}
+  }
+  .status-strip .arrow{color:var(--ink-dim);padding:0 3px;font-size:10px;}
+
+  /* ===== HERO 16 (LEFT) ===== */
+  .hero-16{
+    position:absolute;
+    top:80px;left:48px;
+    z-index:5;
+    line-height:.82;
+  }
+  .hero-16 .num{
+    font-family:'Geist',sans-serif;
+    font-weight:800;
+    font-size:380px;
+    letter-spacing:-.06em;
+    line-height:.82;
+    background:
+      linear-gradient(180deg,
+        rgba(255,255,255,.95) 0%,
+        rgba(201,182,255,.85) 30%,
+        rgba(133,8,224,.7) 70%,
+        rgba(112,34,170,.4) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-stroke:1px rgba(201,182,255,.18);
+    position:relative;
+    display:inline-block;
+  }
+  .hero-16 .month{
+    font-family:'Geist',sans-serif;
+    font-weight:600;
+    font-size:42px;
+    letter-spacing:-.02em;
+    color:var(--ink);
+    margin-top:-30px;
+    margin-left:8px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .hero-16 .month em{
+    font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    color:#C9B6FF;
+  }
+  .hero-16 .month .yr{
+    font-family:'Geist Mono',monospace;
+    font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--ink-dim);font-weight:500;
+    padding:4px 8px;border-radius:5px;
+    background:rgba(180,150,240,.06);
+    border:1px solid var(--line-mid);
+  }
+
+  /* ===== ML INTERVIEW PREP capsule (left bottom) ===== */
+  .topic-pill{
+    position:absolute;
+    bottom:160px;left:48px;
+    z-index:5;
+    padding:18px 28px;border-radius:14px;
+    background:linear-gradient(180deg, rgba(133,8,224,.95), rgba(112,34,170,.95));
+    border:1px solid rgba(180,150,240,.4);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.18) inset,
+      0 12px 30px rgba(133,8,224,.45),
+      0 0 0 1px rgba(133,8,224,.2);
+    display:inline-flex;align-items:center;gap:14px;
+    position:absolute;overflow:hidden;
+  }
+  .topic-pill::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  }
+  .topic-pill .label{
+    font-family:'Geist Mono',monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(255,255,255,.7);font-weight:500;
+    padding-right:14px;border-right:1px solid rgba(255,255,255,.25);
+  }
+  .topic-pill .text{
+    font-family:'Geist',sans-serif;
+    font-weight:700;font-size:28px;
+    letter-spacing:-.02em;color:#FFF;
+  }
+  .topic-pill .text em{
+    font-family:'Instrument Serif',serif;
+    font-style:italic;font-weight:400;
+    color:rgba(255,255,255,.85);
+  }
+
+  /* ===== TOPIC tag (above topic pill) ===== */
+  .topic-tag{
+    position:absolute;
+    bottom:236px;left:56px;
+    z-index:5;
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Geist Mono',monospace;
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:#C9B6FF;font-weight:500;
+  }
+  .topic-tag::before{
+    content:"";width:18px;height:1px;background:#C9B6FF;
+  }
+
+  /* ===== MENTOR (TOP RIGHT) ===== */
+  .mentor{
+    position:absolute;
+    top:36px;right:48px;
+    z-index:5;
+    padding:18px 22px;border-radius:14px;
+    background:rgba(8,9,39,.6);
+    border:1px solid var(--line-mid);
+    backdrop-filter:blur(12px);
+    display:flex;align-items:center;gap:14px;
+    min-width:380px;
+    position:absolute;overflow:hidden;
+  }
+  .mentor::before{
+    content:"";position:absolute;inset:0;border-radius:14px;
+    background:linear-gradient(135deg,rgba(133,8,224,.4),transparent 50%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+    padding:1px;pointer-events:none;
+  }
+  .avatar{
+    width:54px;height:54px;border-radius:50%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(229,218,255,.5), transparent 50%),
+      linear-gradient(135deg, #8508E0 0%, #2D1F5C 80%);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    font-size:26px;color:var(--ink);
+    box-shadow:0 8px 22px rgba(133,8,224,.5);
+    flex-shrink:0;position:relative;
+  }
+  .avatar::after{
+    content:"";position:absolute;inset:-3px;border-radius:50%;
+    border:1px dashed rgba(180,150,240,.4);
+  }
+  .mentor-info{display:flex;flex-direction:column;gap:2px;}
+  .mentor-info .label{
+    font-family:'Geist Mono',monospace;
+    font-size:9px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--accent-light);font-weight:500;
+  }
+  .mentor-info .name{
+    font-family:'Geist',sans-serif;font-weight:600;
+    font-size:22px;color:var(--ink);letter-spacing:-.015em;line-height:1.05;
+  }
+  .mentor-info .name em{
+    font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    color:#C9B6FF;
+  }
+  .mentor-info .role{
+    font-family:'Geist Mono',monospace;
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-mid);font-weight:500;margin-top:2px;
+  }
+
+  /* ===== TIME / DATE / PLATFORM TILE ===== */
+  .time-tile{
+    position:absolute;
+    top:140px;right:48px;
+    z-index:5;
+    padding:14px 18px;border-radius:14px;
+    background:rgba(8,9,39,.6);
+    border:1px solid var(--line-mid);
+    backdrop-filter:blur(12px);
+    display:flex;align-items:center;gap:18px;
+  }
+  .time-tile .blk{display:flex;align-items:center;gap:10px;}
+  .time-tile .blk + .blk{
+    padding-left:18px;border-left:1px solid var(--line);
+  }
+  .time-tile .ic{
+    width:30px;height:30px;border-radius:8px;
+    background:
+      linear-gradient(135deg,rgba(133,8,224,.25),rgba(133,8,224,.05));
+    border:1px solid rgba(133,8,224,.35);
+    display:flex;align-items:center;justify-content:center;
+    color:#C9B6FF;
+  }
+  .time-tile .ic svg{width:14px;height:14px;}
+  .time-tile .info{display:flex;flex-direction:column;gap:1px;}
+  .time-tile .k{
+    font-family:'Geist Mono',monospace;
+    font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-dim);font-weight:500;
+  }
+  .time-tile .v{
+    font-family:'Geist',sans-serif;font-weight:600;
+    font-size:15px;color:var(--ink);letter-spacing:-.01em;line-height:1.1;
+  }
+  .time-tile .v em{
+    font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    color:#C9B6FF;
+  }
+
+  /* ===== POWER SESSION sub line (right middle) ===== */
+  .power{
+    position:absolute;
+    top:230px;right:48px;
+    z-index:5;
+    text-align:right;
+    max-width:380px;
+  }
+  .power .small{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Geist Mono',monospace;
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--accent-light);font-weight:500;
+    margin-bottom:10px;
+  }
+  .power .small::after{
+    content:"";width:18px;height:1px;background:var(--accent-light);
+  }
+  .power h2{
+    font-family:'Geist',sans-serif;font-weight:600;
+    font-size:32px;line-height:1.05;
+    letter-spacing:-.025em;color:var(--ink);
+  }
+  .power h2 em{
+    font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    background:linear-gradient(110deg,#FFFFFF,#C9B6FF 50%,#8508E0);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .power .desc{
+    margin-top:10px;
+    font-size:13px;line-height:1.5;color:var(--ink-mid);
+    font-weight:400;
+  }
+
+  /* ===== CTA (bottom right) ===== */
+  .cta-wrap{
+    position:absolute;
+    bottom:42px;right:48px;
+    z-index:5;
+    display:flex;flex-direction:column;align-items:flex-end;gap:8px;
+  }
+  .cta{
+    display:flex;align-items:stretch;
+    border-radius:13px;overflow:hidden;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.10) inset,
+      0 16px 40px rgba(133,8,224,.4),
+      0 0 0 1px rgba(180,150,240,.18);
+  }
+  .cta .main{
+    padding:16px 22px;
+    background:linear-gradient(180deg,#8508E0 0%,#7022AA 100%);
+    color:#FFFFFF;
+    font-family:'Geist',sans-serif;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    position:relative;overflow:hidden;
+  }
+  .cta .main::after{
+    content:"";position:absolute;top:0;left:-60%;width:35%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+    transform:skewX(-20deg);animation:shine 3.5s infinite;
+  }
+  @keyframes shine{0%{left:-60%;}55%,100%{left:130%;}}
+  .cta .main .stack{display:flex;flex-direction:column;gap:2px;}
+  .cta .main .small{
+    font-family:'Geist Mono',monospace;
+    font-size:9px;letter-spacing:.25em;text-transform:uppercase;
+    color:rgba(255,255,255,.75);font-weight:500;
+  }
+  .cta .main .big{
+    font-weight:600;font-size:17px;letter-spacing:-.005em;
+  }
+  .cta .arr{
+    padding:16px 20px;background:linear-gradient(180deg, #8508E0 0%, #7022AA 100%);;
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    border-left:1px solid rgba(133,8,224,.5);
+  }
+  .arr svg{width:18px;height:18px;}
+  .cta-url{
+    font-family:'Geist Mono',monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-dim);font-weight:500;
+  }
+  .cta-url b{color:var(--ink-mid);font-weight:600;}
+
+  /* ===== Footer mono strip (bottom-left) ===== */
+  .foot{
+    position:absolute;
+    bottom:48px;left:48px;
+    z-index:5;
+    display:flex;align-items:center;gap:14px;
+    font-family:'Geist Mono',monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-dim);font-weight:500;
+  }
+  .foot .v{
+    padding:5px 10px;border-radius:6px;
+    background:rgba(180,150,240,.06);
+    border:1px solid var(--line-mid);
+    color:var(--ink-mid);
+  }
+  .foot .live-mini{
+    display:inline-flex;align-items:center;gap:6px;
+    color:#7CF0CB;
+  }
+  .foot .live-mini .dot{
+    width:5px;height:5px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 8px var(--green);
+  }
+
+</style>
+</head>
+<body>
+  <div class="poster">
+
+    <div class="bg"></div>
+    <div class="grid"></div>
+    <div class="aurora"></div>
+    <div class="aurora-2"></div>
+
+    <div class="node n1"></div>
+    <div class="node n2"></div>
+    <div class="node n3"></div>
+    <div class="node n4"></div>
+
+    <div class="topline"></div>
+
+    <!-- ===== Status strip ===== -->
+    <div class="status-strip">
+      <div class="pill live"><span class="dot"></span>v1.0 · Live cohort</div>
+      <span class="arrow">→</span>
+      <div class="pill">Limited seats</div>
+    </div>
+
+    <!-- ===== HERO 16 (left) ===== -->
+    <div class="hero-16">
+      <div class="num">16</div>
+      <div class="month">
+        May
+        <span class="yr">Friday · 2026</span>
+      </div>
+    </div>
+
+    <!-- ===== TOPIC ===== -->
+    <div class="topic-tag">The masterclass</div>
+    <div class="topic-pill">
+      <div class="label">Topic</div>
+      <div class="text">ML Interview <em>Prep.</em></div>
+    </div>
+
+    <!-- ===== MENTOR (top right) ===== -->
+    <div class="mentor">
+      <div class="avatar">V</div>
+      <div class="mentor-info">
+        <div class="name">Vinit <em>Sharma</em></div>
+        <div class="role">Senior Data Scientist</div>
+      </div>
+    </div>
+
+    <!-- ===== TIME TILE ===== -->
+    <div class="time-tile">
+      <div class="blk">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="info">
+          <div class="k">Time</div>
+          <div class="v">7 — 9 <em>PM</em></div>
+        </div>
+      </div>
+      <div class="blk">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="6" width="14" height="12" rx="2"/>
+            <path d="M16 10l6-3v10l-6-3z" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="info">
+          <div class="k">Platform</div>
+          <div class="v"><em>Live on</em> Zoom</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POWER SESSION ===== -->
+    <div class="power">
+      <div class="small">2-hour intensive</div>
+      <h2>Built for working <em>engineers.</em></h2>
+      <div class="desc">
+        Algorithms, frameworks &amp; case-studies that decide every ML hiring round — taught by someone who's been on both sides of the table.
+      </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="cta-wrap">
+      <a href="#register" target="_top" class="cta-link" aria-label="Reserve my seat — scroll to registration form">
+      <div class="cta">
+        <div class="main">
+          <div class="stack">
+            <div class="small">Cohort 01 · 16 May</div>
+            <div class="big">Reserve my seat</div>
+          </div>
+        </div>
+        <div class="arr">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      </a>
+      <div class="cta-url"><b>upskillaura.com</b></div>
+    </div>
+
+    <!-- ===== FOOTER strip (bottom left) ===== -->
+    <div class="foot">
+      <span class="v">v1.0 · 2026</span>
+      <span class="live-mini"><span class="dot"></span>Inaugural cohort</span>
+    </div>
+
+    <div class="noise"></div>
+  </div>
+<script>
+  (function () {
+    var embedded = window.self !== window.top;
+    if (embedded) document.body.classList.add('embedded');
+
+    // CTA: when embedded, scroll the PARENT page's #register element into view.
+    // A bare href="#register" would resolve relative to this iframe's document, so we
+    // bypass that by talking to window.top directly.
+    var cta = document.querySelector('.cta-link');
+    if (cta) {
+      cta.addEventListener('click', function (e) {
+        if (!embedded) return; // standalone preview: let the browser do its thing
+        e.preventDefault();
+        try {
+          var topDoc = window.top.document;
+          var target = topDoc.getElementById('register');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Briefly focus the first input so users can start typing immediately
+            var firstInput = target.querySelector('input, select, textarea');
+            if (firstInput) setTimeout(function () { firstInput.focus({ preventScroll: true }); }, 600);
+          } else {
+            window.top.location.hash = 'register';
+          }
+        } catch (err) {
+          // Cross-origin or access denied → fall back to top-level hash navigation
+          window.top.location.hash = 'register';
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>

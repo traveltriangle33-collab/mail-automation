@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#04041A">
+
+<title>ML Interview Masterclass · 16 May · Free 2-hour Live Session</title>
+<meta name="description" content="Free 2-hour live ML Interview Masterclass on 16 May, 6 PM IST — hosted by Senior Data Scientist Vinit Sharma. Learn the exact frameworks, patterns and case-studies that decide ML interviews. Reserve your seat free.">
+<meta name="keywords" content="ML interview prep, machine learning interview, data science interview, ML masterclass, free webinar, Vinit Sharma, UpskillAura">
+<meta name="author" content="UpskillAura">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UpskillAura · Masterclass">
+<meta property="og:title" content="ML Interview Masterclass · 16 May · Free 2-hour Live Session">
+<meta property="og:description" content="Hosted by a Senior Data Scientist who runs these interviews. 2 hours. Live on Zoom. Free for all. Reserve your seat.">
+<meta property="og:image" content="public/ad%20poster%202.0.png">
+<meta property="og:image:width" content="1180">
+<meta property="og:image:height" content="664">
+<meta property="og:image:alt" content="ML Interview Prep · 16 May · 6 PM · Live on Zoom · by Vinit Sharma">
+<meta property="og:url" content="https://www.upskillaura.com/">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ML Interview Masterclass · 16 May · Free 2-hour Live Session">
+<meta name="twitter:description" content="Hosted by a Senior Data Scientist who runs these interviews. 2 hours. Live on Zoom. Free for all.">
+<meta name="twitter:image" content="public/ad%20poster%202.0.png">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238508E0'/%3E%3Cstop offset='100%25' stop-color='%232D1F5C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-weight='800' font-size='17' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://www.upskillaura.com/">
+
+<!-- Schema.org Event for Google rich result -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "ML Interview Masterclass · Cohort 01",
+  "description": "A 2-hour live session that compresses years of ML hiring patterns into one playbook — hosted by a Senior Data Scientist who runs these interviews.",
+  "startDate": "2026-05-16T18:00:00+05:30",
+  "endDate": "2026-05-16T20:00:00+05:30",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": { "@type": "VirtualLocation", "url": "https://zoom.us" },
+  "image": ["https://www.upskillaura.com/ad%20poster%202.0.png"],
+  "organizer": { "@type": "Organization", "name": "UpskillAura", "url": "https://www.upskillaura.com" },
+  "performer": { "@type": "Person", "name": "Vinit Sharma", "jobTitle": "Senior Data Scientist" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://www.upskillaura.com/#register" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="public/ad%20poster%202.0.png" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2D1F5C;--secondary:#080927;--text-purple:#7022AA;
+    --accent:#8508E0;--accent-light:#A855F7;--ink:#FFFFFF;
+    --ink-soft:#E5DAFF;--ink-mid:#B8A5DD;--ink-dim:#7E6BA8;--ink-muted:#4A3D6E;
+    --line:rgba(180,150,240,.10);--line-mid:rgba(180,150,240,.18);--line-strong:rgba(180,150,240,.30);
+    --bg-0:#04041A;--bg-1:#080927;--bg-2:#0A0B30;
+    --tile:rgba(15,10,46,.6);--tile-hover:rgba(20,14,60,.8);--green:#22E5A8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;background:#04041A;scrollbar-width:none;-ms-overflow-style:none;}
+  html::-webkit-scrollbar,body::-webkit-scrollbar{width:0;height:0;display:none;}
+  body{background:var(--bg-0);font-family:'Geist',sans-serif;color:var(--ink-soft);
+    font-feature-settings:"ss01","cv11";overflow-x:hidden;line-height:1.5;-webkit-font-smoothing:antialiased;
+    scrollbar-width:none;-ms-overflow-style:none;min-height:100vh;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  button{cursor:pointer;font-family:inherit;border:none;background:none;color:inherit;}
+  .container{max-width:1320px;margin:0 auto;padding:0 28px;}
+
+  .global-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(1000px 700px at 80% -10%, rgba(133,8,224,.18), transparent 55%),
+      radial-gradient(800px 600px at 0% 50%, rgba(45,31,92,.35), transparent 60%),
+      radial-gradient(900px 700px at 100% 100%, rgba(112,34,170,.15), transparent 60%);}
+  .global-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(180,150,240,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180,150,240,.04) 1px, transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(ellipse at 50% 0%, black 30%, transparent 80%);
+    mask-image:radial-gradient(ellipse at 50% 0%, black 30%, transparent 80%);}
+
+  /* NAV */
+  .nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;
+    width:calc(100% - 56px);max-width:1280px;padding:10px 14px 10px 18px;border-radius:14px;
+    backdrop-filter:blur(20px);background:rgba(8,9,39,.55);border:1px solid var(--line-mid);
+    box-shadow:0 12px 40px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand .mark{width:30px;height:30px;border-radius:8px;
+    background:conic-gradient(from 180deg at 50% 50%, #8508E0, #C9B6FF, #2D1F5C, #8508E0);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#FFF;
+    box-shadow:0 0 16px rgba(133,8,224,.5),inset 0 0 0 1px rgba(255,255,255,.15);position:relative;}
+  .brand .mark::after{content:"";position:absolute;inset:2px;border-radius:6px;
+    background:linear-gradient(135deg,#8508E0,#2D1F5C);}
+  .brand .mark span{position:relative;z-index:1;}
+  .brand .name{font-weight:600;font-size:14px;color:var(--ink);letter-spacing:-.01em;}
+  .brand .name span{color:var(--ink-dim);font-weight:400;margin-left:6px;}
+  .nav-links{display:flex;align-items:center;gap:6px;}
+  .nav-link{padding:8px 14px;border-radius:8px;font-size:13px;color:var(--ink-mid);font-weight:500;transition:all .15s;}
+  .nav-link:hover{color:var(--ink);background:var(--line);}
+  .nav-cta{padding:9px 16px;border-radius:9px;
+    background:linear-gradient(180deg,rgba(133,8,224,.95),rgba(112,34,170,.95));
+    color:#FFF;font-size:13px;font-weight:600;
+    box-shadow:0 1px 0 rgba(255,255,255,.18) inset, 0 8px 20px rgba(133,8,224,.35);
+    display:inline-flex;align-items:center;gap:6px;transition:transform .15s;}
+  .nav-cta:hover{transform:translateY(-1px);}
+
+  /* POSTER */
+  .poster{position:relative;z-index:5;padding:104px 0 24px;}
+  .poster-frame{position:relative;width:100%;aspect-ratio:1200/675;
+    border-radius:22px;overflow:hidden;
+    background:#04041A;line-height:0;font-size:0;}
+  .poster-iframe{position:absolute;top:0;left:0;width:1200px;height:675px;border:0;
+    transform-origin:top left;}
+
+  /* HERO */
+  .hero{position:relative;padding:40px 0 80px;}
+  .hero-inner{position:relative;z-index:5;}
+  .status-strip{display:inline-flex;align-items:center;gap:0;padding:5px;border-radius:999px;
+    background:rgba(8,9,39,.7);border:1px solid var(--line-mid);margin-bottom:36px;backdrop-filter:blur(12px);
+    max-width:100%;flex-wrap:wrap;}
+  .status-strip .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;
+    font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-mid);font-weight:500;}
+  .status-strip .pill.live{background:rgba(34,229,168,.12);color:#7CF0CB;}
+  .status-strip .pill .dot{width:6px;height:6px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 0 0 rgba(34,229,168,.7);animation:livePulse 1.8s infinite;}
+  @keyframes livePulse{
+    0%{box-shadow:0 0 0 0 rgba(34,229,168,.7);}
+    70%{box-shadow:0 0 0 8px rgba(34,229,168,0);}}
+  .status-strip .arrow{color:var(--ink-muted);padding:0 4px;}
+
+  .bento{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:14px;}
+  .b-hero{grid-column:1;grid-row:1/3;padding:48px 44px 44px;border-radius:24px;
+    background:
+      radial-gradient(700px 500px at 90% 0%, rgba(133,8,224,.22), transparent 55%),
+      linear-gradient(180deg,rgba(15,10,46,.85),rgba(8,9,39,.95));
+    border:1px solid var(--line-mid);position:relative;overflow:hidden;}
+  .b-hero::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(180,150,240,.45),transparent);}
+  .b-form{grid-column:2;grid-row:1/3;padding:32px;border-radius:24px;
+    background:linear-gradient(180deg, rgba(20,14,60,.85), rgba(8,9,39,.95));
+    border:1px solid var(--line-mid);backdrop-filter:blur(20px);
+    box-shadow:0 30px 80px rgba(0,0,0,.4);position:relative;overflow:hidden;}
+
+  h1.hero-h1{font-family:'Geist',sans-serif;font-weight:600;font-size:60px;line-height:1.02;
+    letter-spacing:-.035em;color:var(--ink);margin-bottom:24px;}
+  h1.hero-h1 .highlight{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    background:linear-gradient(110deg,#FFFFFF 0%,#C9B6FF 50%,#8508E0 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em;}
+  h1.hero-h1 .stack{display:block;color:var(--ink-mid);font-weight:500;}
+  .hero-sub{font-size:17px;line-height:1.55;color:var(--ink-mid);max-width:540px;margin-bottom:32px;font-weight:400;}
+  .hero-sub b{color:var(--ink);font-weight:600;}
+
+  .meta-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border:1px solid var(--line-mid);border-radius:14px;background:rgba(4,4,26,.4);overflow:hidden;}
+  .meta-row .cell{padding:16px 18px;display:flex;flex-direction:column;gap:4px;position:relative;}
+  .meta-row .cell + .cell{border-left:1px solid var(--line);}
+  .meta-row .k{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-dim);font-weight:500;}
+  .meta-row .v{font-family:'Geist',sans-serif;font-weight:600;font-size:18px;color:var(--ink);
+    letter-spacing:-.01em;line-height:1.2;}
+  .meta-row .v small{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-dim);font-weight:500;display:block;margin-top:3px;}
+
+  .ui-mock{margin-top:32px;padding:14px 16px;border-radius:12px;background:rgba(4,4,26,.7);
+    border:1px solid var(--line-mid);font-family:'Geist Mono',monospace;font-size:12px;
+    color:var(--ink-mid);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .ui-mock .prompt{color:var(--accent-light);font-weight:600;}
+  .ui-mock .text{color:var(--ink-soft);}
+  .ui-mock .cursor{width:8px;height:14px;background:var(--accent-light);
+    animation:blink 1s infinite;display:inline-block;margin-left:2px;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* FORM */
+  .f-head{margin-bottom:22px;}
+  .f-tag{display:inline-flex;align-items:center;gap:8px;
+    font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--green);font-weight:500;margin-bottom:14px;padding:5px 10px;border-radius:6px;
+    background:rgba(34,229,168,.08);border:1px solid rgba(34,229,168,.25);}
+  .f-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);}
+  .f-title{font-family:'Geist',sans-serif;font-weight:600;font-size:24px;color:var(--ink);
+    letter-spacing:-.02em;line-height:1.15;margin-bottom:8px;}
+  .f-title em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C9B6FF;}
+  .f-sub{font-size:13px;color:var(--ink-dim);}
+  .field{margin-bottom:12px;}
+  .field label{display:block;font-family:'Geist Mono',monospace;font-size:9px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);font-weight:500;margin-bottom:6px;}
+  .field input, .field select{width:100%;padding:12px 14px;border-radius:10px;
+    background:rgba(4,4,26,.6);border:1px solid var(--line-mid);color:var(--ink);
+    font-family:'Geist',sans-serif;font-size:14px;font-weight:400;transition:all .15s;outline:none;}
+  .field input:focus, .field select:focus{border-color:rgba(133,8,224,.6);
+    background:rgba(4,4,26,.9);box-shadow:0 0 0 3px rgba(133,8,224,.12);}
+  .field input::placeholder{color:var(--ink-muted);}
+  .field select{appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1L6 6L11 1' stroke='%237E6BA8' stroke-width='1.5' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+
+  .submit-btn{width:100%;margin-top:6px;padding:14px;border-radius:11px;
+    background:linear-gradient(180deg,#8508E0 0%,#7022AA 100%);color:#FFFFFF;
+    font-family:'Geist',sans-serif;font-weight:600;font-size:14px;letter-spacing:-.005em;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    box-shadow:0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.2) inset, 0 12px 28px rgba(133,8,224,.4);
+    position:relative;overflow:hidden;transition:transform .12s;}
+  .submit-btn:hover{transform:translateY(-1px);}
+  .submit-btn:disabled{cursor:not-allowed;opacity:.7;transform:none;}
+  .f-msg{margin-top:12px;padding:10px 12px;border-radius:9px;
+    font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.04em;line-height:1.45;}
+  .f-msg.ok{background:rgba(34,229,168,.10);border:1px solid rgba(34,229,168,.35);color:#A8F2D6;}
+  .f-msg.err{background:rgba(229,34,72,.10);border:1px solid rgba(229,34,72,.35);color:#F2A8B6;}
+  .submit-btn::after{content:"";position:absolute;top:0;left:-60%;width:35%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+    transform:skewX(-20deg);animation:shine 3.5s infinite;}
+  @keyframes shine{0%{left:-60%;}55%,100%{left:130%;}}
+  .submit-btn svg{width:14px;height:14px;}
+  .f-foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+    display:flex;align-items:center;gap:8px;
+    font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-dim);font-weight:500;}
+  .f-foot svg{width:11px;height:11px;color:var(--green);}
+
+  /* SECTION */
+  .section{padding:96px 0;position:relative;z-index:5;}
+  .s-head{display:flex;align-items:flex-end;justify-content:space-between;
+    margin-bottom:48px;gap:40px;flex-wrap:wrap;}
+  .s-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:7px;
+    background:rgba(133,8,224,.10);border:1px solid rgba(133,8,224,.3);
+    font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:#C9B6FF;font-weight:500;margin-bottom:18px;}
+  .s-tag .square{width:6px;height:6px;background:var(--accent);}
+  .s-title{font-family:'Geist',sans-serif;font-weight:600;font-size:48px;line-height:1.05;
+    letter-spacing:-.03em;color:var(--ink);max-width:720px;}
+  .s-title em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    background:linear-gradient(110deg,#FFFFFF 0%,#C9B6FF 50%,#8508E0 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .s-sub{font-size:16px;line-height:1.6;color:var(--ink-mid);max-width:420px;}
+
+  /* PROBLEM */
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .problem-card{padding:32px;border-radius:20px;
+    background:linear-gradient(180deg,var(--tile),rgba(8,9,39,.95));
+    border:1px solid var(--line-mid);position:relative;overflow:hidden;}
+  .problem-card.broken{background:linear-gradient(180deg,rgba(20,14,40,.6),rgba(8,9,39,.95));}
+  .problem-card.fixed{
+    background:
+      radial-gradient(400px 300px at 100% 0%, rgba(133,8,224,.18), transparent 60%),
+      linear-gradient(180deg,rgba(20,14,60,.7),rgba(8,9,39,.95));
+    border-color:rgba(133,8,224,.3);}
+  .pc-tag{display:inline-flex;align-items:center;gap:8px;
+    font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:500;margin-bottom:24px;padding:5px 10px;border-radius:6px;}
+  .problem-card.broken .pc-tag{color:#FF7A9C;background:rgba(255,122,156,.08);
+    border:1px solid rgba(255,122,156,.2);}
+  .problem-card.fixed .pc-tag{color:var(--green);background:rgba(34,229,168,.08);
+    border:1px solid rgba(34,229,168,.25);}
+  .pc-tag .dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+  .pc-h{font-family:'Geist',sans-serif;font-weight:600;font-size:24px;color:var(--ink);
+    letter-spacing:-.02em;line-height:1.2;margin-bottom:18px;}
+  .pc-h em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C9B6FF;}
+  .pc-desc{font-size:14px;color:var(--ink-mid);line-height:1.55;margin-bottom:6px;}
+
+  .term{margin-top:18px;padding:16px;border-radius:12px;background:#04041A;
+    border:1px solid var(--line-mid);font-family:'Geist Mono',monospace;font-size:12px;line-height:1.7;}
+  .term .head{display:flex;align-items:center;gap:6px;padding-bottom:10px;
+    margin-bottom:10px;border-bottom:1px solid var(--line);}
+  .term .head .dot{width:9px;height:9px;border-radius:50%;}
+  .term .head .d1{background:#FF5F57;}.term .head .d2{background:#FEBC2E;}.term .head .d3{background:#28C840;}
+  .term .head .file{margin-left:8px;color:var(--ink-dim);font-size:11px;letter-spacing:.05em;}
+  .term .row{display:block;color:var(--ink-mid);word-break:break-word;}
+  .term .row .c1{color:var(--ink-muted);user-select:none;margin-right:14px;}
+  .term .row .err{color:#FF7A9C;}
+  .term .row .ok{color:var(--green);}
+  .term .row .key{color:var(--accent-light);}
+  .term .row .hl{background:linear-gradient(180deg,transparent 55%,rgba(133,8,224,.45) 55%);
+    color:var(--ink);padding:0 2px;border-radius:2px;}
+
+  /* MODULES */
+  .module-bento{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px;}
+  .mod{padding:28px;border-radius:20px;
+    background:linear-gradient(180deg,var(--tile),rgba(8,9,39,.95));
+    border:1px solid var(--line-mid);position:relative;overflow:hidden;transition:all .25s;}
+  .mod:hover{border-color:rgba(133,8,224,.4);transform:translateY(-2px);}
+  .mod.span2{grid-column:span 2;}
+  .mod-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+  .mod-num{display:inline-flex;align-items:center;gap:8px;padding:5px 10px;border-radius:6px;
+    background:rgba(133,8,224,.12);border:1px solid rgba(133,8,224,.3);
+    font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:#C9B6FF;font-weight:600;}
+  .mod-num .dot{width:5px;height:5px;background:var(--accent);border-radius:50%;}
+  .mod-time{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-dim);font-weight:500;}
+  .mod h3{font-family:'Geist',sans-serif;font-weight:600;font-size:22px;color:var(--ink);
+    letter-spacing:-.02em;line-height:1.2;margin-bottom:10px;}
+  .mod h3 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C9B6FF;}
+  .mod .desc{font-size:14px;color:var(--ink-mid);line-height:1.55;margin-bottom:18px;}
+  .mod-list{list-style:none;display:flex;flex-direction:column;gap:8px;
+    padding-top:16px;border-top:1px solid var(--line);}
+  .mod-list li{font-size:13px;color:var(--ink-soft);
+    display:flex;align-items:flex-start;gap:8px;line-height:1.45;}
+  .mod-list li svg{width:13px;height:13px;color:var(--accent-light);flex-shrink:0;margin-top:2px;}
+
+  .mock-progress{margin-top:16px;padding:14px;border-radius:11px;
+    background:rgba(4,4,26,.6);border:1px solid var(--line-mid);}
+  .mock-progress .row{display:flex;align-items:center;justify-content:space-between;
+    padding:8px 0;font-family:'Geist Mono',monospace;font-size:11px;color:var(--ink-mid);}
+  .mock-progress .row + .row{border-top:1px solid var(--line);}
+  .mock-progress .row .l{display:flex;align-items:center;gap:8px;}
+  .mock-progress .row .l .ic{width:14px;height:14px;border-radius:4px;
+    background:rgba(34,229,168,.15);border:1px solid rgba(34,229,168,.4);
+    display:flex;align-items:center;justify-content:center;color:var(--green);font-size:9px;}
+  .mock-progress .row .l .ic.todo{background:rgba(180,150,240,.06);
+    border-color:var(--line-mid);color:var(--ink-dim);}
+  .mock-progress .row .bar{width:120px;height:4px;border-radius:2px;
+    background:var(--line-mid);overflow:hidden;}
+  .mock-progress .row .bar i{display:block;height:100%;
+    background:linear-gradient(90deg,var(--accent),var(--accent-light));}
+
+  /* OUTCOMES */
+  .outcomes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .out-card{padding:26px;border-radius:18px;
+    background:linear-gradient(180deg,var(--tile),rgba(8,9,39,.95));
+    border:1px solid var(--line-mid);position:relative;overflow:hidden;transition:all .25s;}
+  .out-card:hover{border-color:rgba(133,8,224,.4);transform:translateY(-2px);}
+  .out-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,rgba(133,8,224,.25),rgba(168,85,247,.15));
+    border:1px solid rgba(133,8,224,.35);color:#E5DAFF;margin-bottom:18px;}
+  .out-icon svg{width:18px;height:18px;}
+  .out-card h4{font-family:'Geist',sans-serif;font-weight:600;font-size:17px;color:var(--ink);
+    letter-spacing:-.015em;line-height:1.25;margin-bottom:8px;}
+  .out-card h4 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C9B6FF;}
+  .out-card p{font-size:13.5px;color:var(--ink-mid);line-height:1.55;}
+
+  /* MENTOR */
+  .mentor-shell{padding:48px;border-radius:24px;
+    background:
+      radial-gradient(700px 500px at 90% 50%, rgba(133,8,224,.18), transparent 55%),
+      linear-gradient(180deg,rgba(20,14,60,.6),rgba(8,9,39,.95));
+    border:1px solid var(--line-mid);position:relative;overflow:hidden;}
+  .mentor-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:center;}
+  .mentor-photo{aspect-ratio:4/5;width:100%;border-radius:18px;
+    background:linear-gradient(135deg, #2D1F5C 0%, #04041A 100%);
+    border:1px solid rgba(133,8,224,.35);position:relative;overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,.5);}
+  .mentor-photo .mentor-img{position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:50% 22%;display:block;}
+  .mentor-photo .badges{position:absolute;top:18px;left:18px;right:18px;
+    display:flex;justify-content:space-between;gap:8px;}
+  .mentor-photo .b{padding:6px 10px;border-radius:7px;
+    background:rgba(4,4,26,.85);backdrop-filter:blur(10px);
+    border:1px solid var(--line-mid);
+    font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);font-weight:500;
+    display:flex;align-items:center;gap:6px;}
+  .mentor-photo .b .dot{width:5px;height:5px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 8px var(--green);}
+  .mentor-photo .credit{position:absolute;bottom:18px;left:18px;right:18px;
+    padding:14px 16px;border-radius:11px;
+    background:rgba(4,4,26,.85);backdrop-filter:blur(14px);border:1px solid var(--line-mid);}
+  .mentor-photo .credit .role{font-family:'Geist Mono',monospace;font-size:10px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);font-weight:500;}
+  .mentor-photo .credit .nm{font-family:'Geist',sans-serif;font-weight:600;font-size:18px;
+    color:var(--ink);letter-spacing:-.015em;margin-top:2px;}
+
+  .mentor-info .label{display:inline-flex;align-items:center;gap:8px;padding:5px 10px;border-radius:6px;
+    background:rgba(133,8,224,.10);border:1px solid rgba(133,8,224,.3);
+    font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:#C9B6FF;font-weight:500;margin-bottom:18px;}
+  .mentor-info h2{font-family:'Geist',sans-serif;font-weight:600;font-size:44px;color:var(--ink);
+    letter-spacing:-.025em;line-height:1.05;margin-bottom:6px;}
+  .mentor-info h2 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C9B6FF;}
+  .mentor-info .role{font-size:16px;color:var(--ink-mid);margin-bottom:24px;font-weight:400;}
+  .mentor-info .bio{font-size:15px;line-height:1.65;color:var(--ink-soft);margin-bottom:14px;}
+  .mentor-info .bio em{font-family:'Instrument Serif',serif;font-style:italic;color:#C9B6FF;}
+
+  .mentor-stats{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line-mid);border-radius:14px;overflow:hidden;}
+  .mentor-stats .s{padding:18px 20px;background:rgba(4,4,26,.5);}
+  .mentor-stats .num{font-family:'Geist',sans-serif;font-weight:600;font-size:24px;
+    color:var(--ink);letter-spacing:-.02em;margin-bottom:4px;}
+  .mentor-stats .num em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#C9B6FF;}
+  .mentor-stats .lbl{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-dim);font-weight:500;line-height:1.4;}
+
+  /* FAQ */
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .faq-item{padding:24px 26px;border-radius:16px;
+    background:linear-gradient(180deg,var(--tile),rgba(8,9,39,.95));
+    border:1px solid var(--line-mid);transition:all .2s;}
+  .faq-item:hover{border-color:rgba(133,8,224,.35);}
+  .faq-item .q{display:flex;align-items:flex-start;gap:12px;
+    font-family:'Geist',sans-serif;font-weight:600;font-size:16px;color:var(--ink);
+    letter-spacing:-.015em;line-height:1.3;margin-bottom:10px;}
+  .faq-item .q-mark{flex-shrink:0;width:22px;height:22px;border-radius:6px;
+    background:rgba(133,8,224,.18);border:1px solid rgba(133,8,224,.4);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Geist Mono',monospace;font-size:11px;color:#C9B6FF;font-weight:600;}
+  .faq-item .a{font-size:14px;color:var(--ink-mid);line-height:1.6;padding-left:34px;}
+
+  /* CTA banner */
+  .cta-banner{position:relative;z-index:5;padding:0 0 96px;}
+  .cta-shell{padding:56px 48px;border-radius:24px;text-align:center;
+    background:
+      radial-gradient(700px 400px at 50% 0%, rgba(133,8,224,.3), transparent 60%),
+      linear-gradient(180deg, #14093A 0%, #04041A 100%);
+    border:1px solid rgba(133,8,224,.3);
+    box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);
+    position:relative;overflow:hidden;}
+  .cta-shell::before{content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(180,150,240,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180,150,240,.05) 1px, transparent 1px);
+    background-size:40px 40px;
+    -webkit-mask-image:radial-gradient(ellipse at 50% 50%, black 30%, transparent 75%);
+    mask-image:radial-gradient(ellipse at 50% 50%, black 30%, transparent 75%);
+    pointer-events:none;}
+  .cta-shell > *{position:relative;z-index:1;}
+  .cta-shell .small{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;
+    background:rgba(8,9,39,.7);border:1px solid var(--line-mid);
+    font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:500;margin-bottom:20px;}
+  .cta-shell .small .dot{width:6px;height:6px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 8px var(--green);animation:livePulse 1.8s infinite;}
+  .cta-shell h2{font-family:'Geist',sans-serif;font-weight:600;font-size:48px;color:var(--ink);
+    letter-spacing:-.03em;line-height:1.05;margin-bottom:14px;}
+  .cta-shell h2 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    background:linear-gradient(110deg,#FFFFFF 0%,#C9B6FF 50%,#8508E0 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .cta-shell p{font-size:16px;color:var(--ink-mid);max-width:520px;margin:0 auto 28px;line-height:1.55;}
+  .cta-shell .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:11px;
+    background:linear-gradient(180deg,#8508E0 0%,#7022AA 100%);color:#FFF;
+    font-family:'Geist',sans-serif;font-weight:600;font-size:14px;letter-spacing:-.005em;
+    box-shadow:0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.2) inset, 0 12px 28px rgba(133,8,224,.4);
+    transition:transform .12s;}
+  .cta-shell .btn:hover{transform:translateY(-1px);}
+  .cta-shell .btn svg{width:14px;height:14px;}
+
+  /* FOOTER */
+  footer{padding:32px 0;border-top:1px solid var(--line);background:var(--bg-1);position:relative;z-index:5;}
+  .f-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+  .f-legal{font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-dim);font-weight:500;}
+  .f-links{display:flex;gap:20px;}
+  .f-links a{font-size:12px;color:var(--ink-mid);transition:color .15s;}
+  .f-links a:hover{color:var(--ink);}
+
+  /* ── RESPONSIVE ─────────────────────────────────────── */
+  /* Tablet ≤1080px */
+  @media (max-width:1080px){
+    .container{padding:0 22px;}
+    .bento{grid-template-columns:1fr;}
+    .b-hero, .b-form{grid-column:1;grid-row:auto;}
+    .problem-grid{grid-template-columns:1fr;}
+    .mentor-grid{grid-template-columns:1fr;gap:32px;}
+    .outcomes-grid{grid-template-columns:1fr 1fr;}
+    .faq-grid{grid-template-columns:1fr;}
+    h1.hero-h1{font-size:44px;}
+    .s-title{font-size:36px;}
+    .cta-shell h2{font-size:38px;}
+    .cta-shell{padding:44px 28px;}
+    .nav-links{display:none;}
+    .mentor-shell{padding:32px;}
+    .b-hero{padding:36px 30px 32px;}
+    .section{padding:80px 0;}
+    .mentor-info h2{font-size:38px;}
+    .mentor-photo{aspect-ratio:4/5;max-width:380px;width:100%;margin:0 auto;max-height:none;}
+  }
+  /* Tablet portrait / large phone ≤768px */
+  @media (max-width:768px){
+    .container{padding:0 18px;}
+    .nav{top:10px;width:calc(100% - 20px);padding:8px 10px 8px 14px;}
+    .nav-cta{padding:8px 12px;font-size:12px;}
+    .module-bento{grid-template-columns:1fr;}
+    .poster{padding:90px 0 14px;}
+    .poster-frame{border-radius:18px;}
+    h1.hero-h1{font-size:34px;}
+    .hero-sub{font-size:15px;margin-bottom:26px;}
+    .s-title{font-size:30px;}
+    .s-head{margin-bottom:32px;gap:24px;}
+    .s-sub{font-size:14.5px;}
+    .meta-row{grid-template-columns:1fr;}
+    .meta-row .cell + .cell{border-left:none;border-top:1px solid var(--line);}
+    .b-hero{padding:28px 22px;}
+    .b-form{padding:24px 22px;}
+    .problem-card{padding:22px;}
+    .out-card, .mod, .faq-item{padding:22px;}
+    .mentor-shell{padding:22px;}
+    .mentor-photo{max-width:340px;border-radius:16px;}
+    .mentor-photo .badges{top:14px;left:14px;right:14px;}
+    .mentor-photo .credit{bottom:14px;left:14px;right:14px;padding:11px 13px;border-radius:9px;}
+    .mentor-photo .credit .nm{font-size:16px;}
+    .mentor-info h2{font-size:32px;}
+    .mentor-info .bio{font-size:14px;}
+    .cta-shell{padding:36px 20px;}
+    .cta-shell h2{font-size:28px;}
+    .cta-shell p{font-size:14px;}
+    .term{font-size:11px;line-height:1.6;padding:14px;}
+    .pc-h{font-size:21px;}
+    .mod h3{font-size:20px;}
+    .ui-mock{font-size:11px;}
+    .section{padding:64px 0;}
+    .f-inner{flex-direction:column;text-align:center;}
+  }
+  /* Phone ≤480px */
+  @media (max-width:480px){
+    .container{padding:0 14px;}
+    .nav{padding:7px 8px 7px 12px;border-radius:12px;}
+    .brand .name span{display:none;}
+    .nav-cta{font-size:11px;padding:7px 10px;letter-spacing:-.005em;gap:4px;}
+    .poster{padding:78px 0 10px;}
+    .poster-frame{border-radius:14px;}
+    h1.hero-h1{font-size:28px;}
+    .hero-sub{font-size:14px;}
+    .s-title{font-size:24px;}
+    .cta-shell h2{font-size:22px;}
+    .outcomes-grid{grid-template-columns:1fr;}
+    .mentor-stats{grid-template-columns:1fr;}
+    .section{padding:52px 0;}
+    .b-hero{padding:24px 18px;}
+    .b-form{padding:20px 18px;}
+    .problem-card, .out-card, .mod, .faq-item{padding:18px;}
+    .mentor-shell{padding:18px;}
+    .pc-h, .mod h3{font-size:19px;}
+    .term{font-size:10.5px;padding:12px;line-height:1.55;}
+    .ui-mock{font-size:10.5px;}
+    .meta-row .v{font-size:16px;}
+    .submit-btn{padding:13px;font-size:13px;}
+    .mentor-photo{max-width:300px;border-radius:14px;}
+    .mentor-photo .b{padding:5px 8px;font-size:9px;letter-spacing:.16em;}
+    .mentor-photo .credit{padding:10px 12px;}
+    .mentor-photo .credit .role{font-size:9px;letter-spacing:.18em;}
+    .mentor-photo .credit .nm{font-size:15px;}
+    .mentor-info h2{font-size:28px;}
+    .faq-item .q{font-size:15px;}
+    .faq-item .a{font-size:13.5px;padding-left:0;}
+    .out-card h4{font-size:16px;}
+    .pc-desc, .mod .desc{font-size:13.5px;}
+    .cta-shell .btn{padding:12px 22px;font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="global-bg"></div>
+<div class="global-grid"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="brand">
+    <div class="mark"><span>M</span></div>
+    <div class="name"><b>Masterclass</b><span>/ ML Track</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#curriculum" class="nav-link">Curriculum</a>
+    <a href="#outcomes" class="nav-link">Outcomes</a>
+    <a href="#mentor" class="nav-link">Mentor</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="#register" class="nav-cta">Reserve seat
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<!-- POSTER -->
+<section class="poster">
+  <div class="container">
+    <div class="poster-frame" id="poster-frame">
+      <iframe src="public/ml_interview_prep_REFINED.html"
+              class="poster-iframe" id="poster-iframe"
+              title="ML Interview Masterclass · 16 May poster"
+              loading="eager" scrolling="no"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+
+    <div class="status-strip">
+      <div class="pill live"><span class="dot"></span>v1.0 · Inaugural cohort</div>
+      <div class="arrow">→</div>
+      <div class="pill">Live · 16 May, 7 PM IST</div>
+    </div>
+
+    <div class="bento">
+      <div class="b-hero">
+        <h1 class="hero-h1">
+          The operating system for<br>
+          <span class="highlight">ML interviews.</span>
+          <span class="stack">Built by someone who runs them.</span>
+        </h1>
+        <p class="hero-sub">
+          Stop studying ML like a syllabus. <b>Start studying it like a hiring manager.</b> A 2-hour live masterclass distilling the patterns, frameworks and case-studies that decide every ML interview.
+        </p>
+
+        <div class="meta-row">
+          <div class="cell"><div class="k">Date</div><div class="v">16 May<small>Friday</small></div></div>
+          <div class="cell"><div class="k">Time</div><div class="v">7 — 9 PM<small>IST · 2 hours</small></div></div>
+          <div class="cell"><div class="k">Platform</div><div class="v">Live<small>Zoom · Q&amp;A included</small></div></div>
+        </div>
+
+        <div class="ui-mock">
+          <span class="prompt">⸺ ml-prep</span>
+          <span class="text">analyzing question_pattern.json — extracting framework</span>
+          <span class="cursor"></span>
+        </div>
+      </div>
+
+      <form class="b-form" id="register">
+        <div class="f-head">
+          <div class="f-tag"><span class="dot"></span>Seats filling · cohort 01</div>
+          <div class="f-title">Reserve your <em>spot.</em></div>
+          <div class="f-sub">30 seconds. Zoom link sent to your email instantly.</div>
+        </div>
+
+        <div class="field"><label>Full name</label><input type="text" name="name" placeholder="Your name" required></div>
+        <div class="field"><label>Email address</label><input type="email" name="email" placeholder="you@university.edu" required></div>
+        <div class="field"><label>WhatsApp number</label><input type="tel" name="phone" placeholder="+91 98XXX XXXXX" required></div>
+        <div class="field">
+          <label>You are a —</label>
+          <select name="role" required>
+            <option value="">Select one</option>
+            <option>3rd year engineering student</option>
+            <option>4th / final year student</option>
+            <option>Recent graduate, job hunting</option>
+            <option>Working professional, switching to ML</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button class="submit-btn" type="submit" id="submit-btn">
+          <span id="submit-label">Confirm my seat</span>
+          <svg viewBox="0 0 24 24" fill="none" id="submit-arrow">
+            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div id="form-msg"></div>
+
+        <div class="f-foot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Encrypted · No spam · Used only for session access
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="container">
+    <div class="s-head">
+      <div>
+        <div class="s-tag"><span class="square"></span>The diagnosis</div>
+        <h2 class="s-title">Why most ML prep <em>fails</em> the interview test.</h2>
+      </div>
+      <p class="s-sub">The problem isn't lack of effort. It's that the prep is built for the wrong battle. Here's what usually happens — and what changes when you flip the lens.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card broken">
+        <div class="pc-tag"><span class="dot"></span>Status: stuck</div>
+        <div class="pc-h">Studying ML <em>like a syllabus.</em></div>
+        <p class="pc-desc">Memorising algorithm definitions you can't apply under pressure. Treating every concept as equally important. Zero exposure to how questions actually get framed.</p>
+        <div class="term">
+          <div class="head"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div><div class="file">interview-attempt.log</div></div>
+          <span class="row"><span class="c1">01</span><span class="key">Q:</span> "Walk me through how you'd approach this churn prediction problem."</span>
+          <span class="row"><span class="c1">02</span><span class="key">You:</span> "Umm... I'd use logistic regression?"</span>
+          <span class="row"><span class="c1">03</span><span class="err">// answer too narrow. interviewer waiting for framing.</span></span>
+          <span class="row"><span class="c1">04</span><span class="err">✗ Round terminated.</span></span>
+        </div>
+      </div>
+
+      <div class="problem-card fixed">
+        <div class="pc-tag"><span class="dot"></span>Status: shipping</div>
+        <div class="pc-h">Studying ML <em>like a hiring manager.</em></div>
+        <p class="pc-desc">Learn the 7 algorithm families that 80% of ML rounds orbit around. Understand why bias-variance and regularisation are non-negotiable. Walk out with a checklist for any question.</p>
+        <div class="term">
+          <div class="head"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div><div class="file">interview-attempt.log</div></div>
+          <span class="row"><span class="c1">01</span><span class="key">Q:</span> "Walk me through how you'd approach this churn prediction problem."</span>
+          <span class="row"><span class="c1">02</span><span class="key">You:</span> "Let me first frame the problem — <span class="hl">what is my data says after EDA</span>?"</span>
+          <span class="row"><span class="c1">03</span><span class="ok">// good. interviewer leans forward.</span></span>
+          <span class="row"><span class="c1">04</span><span class="ok">✓ Offer extended.</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="section" id="curriculum">
+  <div class="container">
+    <div class="s-head">
+      <div>
+        <div class="s-tag"><span class="square"></span>The 2 hours, mapped</div>
+        <h2 class="s-title">Four modules. Zero <em>filler.</em></h2>
+      </div>
+      <p class="s-sub">Each module engineered around the questions that actually surface in ML rounds — at startups, product companies and FAANG-tier panels.</p>
+    </div>
+
+    <div class="module-bento">
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num"><span class="dot"></span>Module 01</div><div class="mod-time">~ 25 min</div></div>
+        <h3>The <em>Algorithm Map</em></h3>
+        <div class="desc">A clear mental model of every algorithm interviewers actually probe — supervised, unsupervised, ensembles. When to reach for which, and why.</div>
+        <div class="mock-progress">
+          <div class="row">
+            <div class="l"><div class="ic">✓</div>Linear &amp; logistic regression — what they really probe</div>
+            <div class="bar"><i style="width:100%;"></i></div>
+          </div>
+          <div class="row">
+            <div class="l"><div class="ic">✓</div>Trees, random forests, gradient boosting — when each wins</div>
+            <div class="bar"><i style="width:100%;"></i></div>
+          </div>
+          <div class="row">
+            <div class="l"><div class="ic todo">○</div>Clustering &amp; dim. reduction — usually under-prepared</div>
+            <div class="bar"><i style="width:35%;"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num"><span class="dot"></span>Module 02</div><div class="mod-time">~ 30 min</div></div>
+        <h3><em>Concept</em> Clarity</h3>
+        <div class="desc">The fundamentals that separate "I memorised it" from "I understand it." Where most candidates lose the round in 5 minutes.</div>
+        <ul class="mod-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Bias-variance — beyond the textbook diagram</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Regularisation &amp; cross-validation traps</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Picking the right metric — accuracy is rarely it</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num"><span class="dot"></span>Module 03</div><div class="mod-time">~ 35 min</div></div>
+        <h3>Interview <em>Guidance &amp; Walkthrough</em></h3>
+        <div class="desc">A live, behind-the-scenes walk-through of a real ML interview — staged the way panels actually run them. We rebuild a candidate's answer in real time, point out the exact moments interviewers form their verdict, and show you the small phrasing shifts that move you from "rejected" to "advance to next round."</div>
+        <ul class="mod-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Live mock-interview teardown — what "good" actually sounds like</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Handling "I don't know" without losing the room</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Negotiating the question — when (and how) to push back</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num"><span class="dot"></span>Module 04</div><div class="mod-time">~ 30 min</div></div>
+        <h3>The <em>Playbook</em></h3>
+        <div class="desc">Meta-skills nobody teaches you. How to think out loud, what hiring managers really score you on.</div>
+        <ul class="mod-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>The 4-step framework for any ML question</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Red flags interviewers note in 30 seconds</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Live Q&amp;A — bring your interview horror stories</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="section" id="outcomes">
+  <div class="container">
+    <div class="s-head">
+      <div>
+        <div class="s-tag"><span class="square"></span>What you walk away with</div>
+        <h2 class="s-title">Tangible takeaways. <em>Not vibes.</em></h2>
+      </div>
+      <p class="s-sub">Two hours, four artifacts you'll keep using long after the session ends — engineered to plug straight into your next round.</p>
+    </div>
+
+    <div class="outcomes-grid">
+      <div class="out-card">
+        <div class="out-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>The <em>4-step</em> answer framework</h4>
+        <p>A printable checklist you mentally run before any ML question — frame, baseline, model, evaluate. Never freeze on "where do I start?" again.</p>
+      </div>
+
+      <div class="out-card">
+        <div class="out-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 4 4 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>The <em>concept</em> cheat-sheet</h4>
+        <p>Bias-variance, regularisation, metrics, validation — the seven concepts that surface in 80% of rounds, distilled into one reference page.</p>
+      </div>
+
+      <div class="out-card">
+        <div class="out-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>The <em>narration</em> patterns</h4>
+        <p>Sample phrasings for thinking out loud — the verbal cues that signal seniority and make panels lean in instead of move on.</p>
+      </div>
+
+      <div class="out-card">
+        <div class="out-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>The <em>30-day</em> prep map</h4>
+        <p>A week-by-week plan for what to revise, what to drill, and what to skip — calibrated for whatever stage you're at right now.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTOR -->
+<section class="section" id="mentor">
+  <div class="container">
+    <div class="mentor-shell">
+      <div class="mentor-grid">
+        <div class="mentor-photo">
+          <img src="public/IMG_6764.JPEG" alt="Vinit Sharma — Senior Data Scientist" class="mentor-img">
+          <div class="badges"><div class="b"><span class="dot"></span>Hosting · 16 May</div></div>
+          <div class="credit"><div class="role">Senior Data Scientist</div><div class="nm">Vinit Sharma</div></div>
+        </div>
+
+        <div class="mentor-info">
+          <div class="label"></div>
+          <h2>Vinit <em>Sharma</em></h2>
+          <div class="role">Senior Data Scientist</div>
+          <p class="bio">Vinit has spent the last several years building ML systems in production — and just as importantly, he's been on the <em>other side of the table.</em> He's interviewed candidates for ML roles, watched brilliant engineers fumble basic framing, and seen mediocre profiles win offers because they understood how to talk about their thinking.</p>
+          <p class="bio">This masterclass distills exactly what he wishes every candidate walked into the room knowing — without the textbook detours.</p>
+
+          <div class="mentor-stats">
+            <div class="s"><div class="num">Sr. <em>DS</em></div><div class="lbl">Currently leading<br>ML projects</div></div>
+            <div class="s"><div class="num"><em>Both</em> sides</div><div class="lbl">Of the<br>interview table</div></div>
+            <div class="s"><div class="num"><em>2</em> hrs</div><div class="lbl">To compress<br>years of pattern</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="s-head">
+      <div>
+        <div class="s-tag"><span class="square"></span>Quick answers</div>
+        <h2 class="s-title">Things people <em>ask</em> before signing up.</h2>
+      </div>
+      <p class="s-sub">If your question isn't here, ping us on the registration confirmation — we read every reply.</p>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="q"><div class="q-mark">?</div>Is this for beginners or experienced folks?</div>
+        <div class="a">Both — but optimised for anyone within 12 months of an ML interview. If you've never written a model, you'll get more from a foundations course first.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><div class="q-mark">?</div>Will I get a recording?</div>
+        <div class="a">No recordings — this is a live-only masterclass. Showing up is the point. What you will get: the complete cheat-sheet pack delivered within 24 hours, so you can revise the frameworks long after the session ends.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><div class="q-mark">?</div>How is this different from a YouTube playlist?</div>
+        <div class="a">YouTube teaches you concepts. This teaches you the meta — what panels are scoring, the phrasing that lands, the framings that don't. It's pattern, not theory.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><div class="q-mark">?</div>Is there a fee?</div>
+        <div class="a">The inaugural cohort is free for the first wave of registrants. Future cohorts will be paid — lock your seat now.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><div class="q-mark">?</div>Will my specific interview question be addressed?</div>
+        <div class="a">The last 30 minutes is live Q&amp;A. Bring real questions you've been asked or are dreading — Vinit walks through them on the call.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q"><div class="q-mark">?</div>What if I can't make it live?</div>
+        <div class="a">Try to make it. The Q&amp;A is where most attendees get their breakthrough. You'll get the cheat-sheet pack either way, but it's a companion — not a replacement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-shell">
+      <div class="small"><span class="dot"></span>Cohort 01 · Closing soon</div>
+      <h2>Two hours that change<br>how you walk into <em>every ML round.</em></h2>
+      <p>Free for the inaugural cohort. Live Q&amp;A. Recording included. The seat is yours if you claim it now.</p>
+      <a href="#register" class="btn">Reserve my seat
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container f-inner">
+    <div class="f-legal">© 2026 Masterclass · ML Track · v1.0</div>
+    <div class="f-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var frame = document.getElementById("poster-frame");
+    var iframe = document.getElementById("poster-iframe");
+    if (!frame || !iframe) return;
+    function scalePoster() {
+      var scale = frame.clientWidth / 1200;
+      iframe.style.transform = "scale(" + scale + ")";
+    }
+    scalePoster();
+    window.addEventListener("resize", scalePoster);
+    iframe.addEventListener("load", scalePoster);
+  })();
+
+  var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbyZ3uFG4zeb374UQlSUf-knW5o4LWQt1I_ZHO6bI6vaqCZxH5jRe0hXHfg9jjXZ4Zm3/exec";
+
+  (function () {
+    var form = document.getElementById("register");
+    if (!form) return;
+    var btn = document.getElementById("submit-btn");
+    var label = document.getElementById("submit-label");
+    var arrow = document.getElementById("submit-arrow");
+    var msg = document.getElementById("form-msg");
+    var submitting = false;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (submitting) return;
+      submitting = true;
+      btn.disabled = true;
+      label.textContent = "Reserving…";
+      if (arrow) arrow.style.display = "none";
+      msg.className = "";
+      msg.textContent = "";
+
+      var data = new FormData(form);
+      var body = new URLSearchParams();
+      data.forEach(function (v, k) { body.append(k, v); });
+      body.append("timestamp", new Date().toISOString());
+      body.append("source", "ml-masterclass-cohort-01");
+
+      fetch(SHEET_ENDPOINT, { method: "POST", body: body })
+        .then(function () {
+          msg.className = "f-msg ok";
+          msg.textContent = "Seat reserved. We'll email the Zoom link before 16 May.";
+          form.reset();
+        })
+        .catch(function () {
+          msg.className = "f-msg err";
+          msg.textContent = "Couldn't save right now — please try again or DM us on WhatsApp.";
+        })
+        .then(function () {
+          submitting = false;
+          btn.disabled = false;
+          label.textContent = "Confirm my seat";
+          if (arrow) arrow.style.display = "";
+        });
+    });
+  })();
+</script>
+
+</body>
+</html>
