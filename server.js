@@ -9,14 +9,13 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Email configuration
+// Email configuration - SendGrid
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
+  host: 'smtp.sendgrid.net',
   port: 587,
-  secure: false,
   auth: {
-    user: 'info@upskillaura.com',
-    pass: 'oski mtpg rcgz zekr',
+    user: 'apikey',
+    pass: process.env.SENDGRID_API_KEY,
   },
 });
 
