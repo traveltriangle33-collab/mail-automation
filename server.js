@@ -137,7 +137,7 @@ app.get('/health', (req, res) => {
   res.json({ status: 'Server is running' });
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ Server running on port ${PORT}`);
   console.log(`📧 Emails will be sent from: info@upskillaura.com`);
 });
