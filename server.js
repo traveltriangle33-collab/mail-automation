@@ -1,6 +1,6 @@
 import express from 'express';
-import nodemailer from 'nodemailer';
 import cors from 'cors';
+import sgMail from '@sendgrid/mail';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,15 +9,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Email configuration - SendGrid
-const transporter = nodemailer.createTransport({
-  host: 'smtp.sendgrid.net',
-  port: 587,
-  auth: {
-    user: 'apikey',
-    pass: process.env.SENDGRID_API_KEY,
-  },
-});
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Form submission endpoint
 app.post('/api/register', async (req, res) => {
@@ -32,12 +24,12 @@ app.post('/api/register', async (req, res) => {
     }
 
     // Send confirmation email to user
-    const userEmailResult = await sendUserConfirmationEmail(name, email);
-    console.log('User email sent:', userEmailResult.messageId);
+    await sendUserConfirmationEmail(name, email);
+    console.log('User email sent to:', email);
 
     // Send notification to admin
-    const adminEmailResult = await sendAdminNotification(name, email, phone, role);
-    console.log('Admin email sent:', adminEmailResult.messageId);
+    await sendAdminNotification(name, email, phone, role);
+    console.log('Admin email sent');
 
     res.json({ ok: true, message: 'Registration successful' });
   } catch (error) {
@@ -48,9 +40,9 @@ app.post('/api/register', async (req, res) => {
 
 // Send confirmation email to user
 async function sendUserConfirmationEmail(name, email) {
-  const mailOptions = {
-    from: 'info@upskillaura.com',
+  const msg = {
     to: email,
+    from: 'info@upskillaura.com',
     subject: 'Seat Confirmed — ML Interview Prep Masterclass · 16 May',
     html: `
       <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto;">
@@ -90,14 +82,14 @@ async function sendUserConfirmationEmail(name, email) {
     `,
   };
 
-  return transporter.sendMail(mailOptions);
+  return sgMail.send(msg);
 }
 
 // Send admin notification
 async function sendAdminNotification(name, email, phone, role) {
-  const mailOptions = {
-    from: 'info@upskillaura.com',
+  const msg = {
     to: 'info@upskillaura.com',
+    from: 'info@upskillaura.com',
     subject: `New Registration: ${name}`,
     html: `
       <div style="font-family: Arial, sans-serif; color: #333;">
@@ -128,7 +120,7 @@ async function sendAdminNotification(name, email, phone, role) {
     `,
   };
 
-  return transporter.sendMail(mailOptions);
+  return sgMail.send(msg);
 }
 
 // Health check endpoint
